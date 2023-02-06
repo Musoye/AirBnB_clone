@@ -23,3 +23,13 @@ class BaseModel:
     def save(self):
         """save and update"""
         self.updated_at = datetime.datetime.now()
+
+    def to_dict(self):
+        """change to dictionary"""
+        dict_1 = self.__dict__.copy()
+        dict_1['__class__'] = type(self).__name__
+        for i, t in self.__dict__.items():
+            if i in ["created_at", "updated_at"]:
+                t = self.__dict__[i].isoformat()
+                dict_1[i] = t
+        return (dict_1)
