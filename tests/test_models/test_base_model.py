@@ -25,7 +25,7 @@ class TestBaseCase(unittest.TestCase):
         self.assertEqual(type(a.id), str)
 
     def test_instances(self):
-        a = BaseModel();
+        a = BaseModel()
         b = "[BaseModel] ({}) {}".format(a.id,
                                          a.__dict__)
         self.assertEqual(a.__str__(), b)
@@ -33,7 +33,8 @@ class TestBaseCase(unittest.TestCase):
     def test_update_save(self):
         a = BaseModel()
         b, c = a.save(), datetime.datetime.now()
-        self.assertEqual(a.updated_at.strftime('%H:%M:%S'), c.strftime('%H:%M:%S'))
+        self.assertEqual(a.updated_at.strftime('%H:%M:%S'),
+                         c.strftime('%H:%M:%S'))
 
     def test_for_class_dict(self):
         a = BaseModel()

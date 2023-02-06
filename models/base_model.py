@@ -16,8 +16,8 @@ class BaseModel:
     def __str__(self):
         """the print out to stdout"""
         out = "[{}] ({}) {}".format(type(self).__name__,
-                              self.id,
-                              self.__dict__)
+                                    self.id,
+                                    self.__dict__)
         return (out)
 
     def save(self):
