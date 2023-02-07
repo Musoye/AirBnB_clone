@@ -81,8 +81,8 @@ class TestBaseCase(unittest.TestCase):
         b = a.to_dict()
         c = BaseModel(**b)
         self.assertEqual(b, c.to_dict())
-        self.assertEqual(b.id, c.id)
-        self.assertEqual(b.created_at.strftime('%H:%M:%S'), c.created_at.strftime('%H:%M:%S'))
+        self.assertEqual(b.get('id'), c.id)
+        self.assertEqual(a.created_at, c.created_at)
 
     def testno_class_attribute(self):
         a = BaseModel()
@@ -90,4 +90,4 @@ class TestBaseCase(unittest.TestCase):
         b = a.to_dict()
         c = BaseModel(**b)
         self.assertNotEqual(c.created_at, c.updated_at)
-        self.assertNotequal(c.updated_at, a.updated_at)
+        self.assertEqual(c.updated_at, a.updated_at)
