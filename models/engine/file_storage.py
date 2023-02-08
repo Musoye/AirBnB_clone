@@ -1,11 +1,17 @@
 #!/usr/bin/python3
-"""The storage Module"""
+"""This is the File Storage module."""
 import json
 from models.base_model import BaseModel
+from models.user import User
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.amenity import Amenity
+from models.review import Review
 
 
 class FileStorage:
-    """The file stoage class """
+    """The file storage class """
     __file_path = 'file.json'
     __objects = {}
 
