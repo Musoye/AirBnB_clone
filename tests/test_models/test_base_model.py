@@ -3,6 +3,7 @@
 from models.base_model import BaseModel
 import unittest
 import datetime
+from time import sleep
 
 
 class TestBaseCase(unittest.TestCase):
@@ -36,6 +37,12 @@ class TestBaseCase(unittest.TestCase):
         self.assertEqual(a.updated_at.strftime('%H:%M:%S'),
                          c.strftime('%H:%M:%S'))
 
+    def test_update_save_a(self):
+        a = BaseModel()
+        sleep(0.05)
+        a.save()
+        self.assertNotEqual(a.created_at, a.updated_at)
+
     def test_for_class_dict(self):
         a = BaseModel()
         self.assertTrue('__class__' in a.to_dict())
@@ -49,6 +56,15 @@ class TestBaseCase(unittest.TestCase):
         a = BaseModel()
         self.assertEqual(type(a.to_dict()), dict)
 
+    def test_dict_arg(self):
+        a = BaseModel()
+        with self.assertRaises(TypeError):
+            a.to_dict(None)
+
+    def test_dunder_ne_todict(self):
+        a = BaseModel()
+        self.assertNotEqual(a.__dict__, a.to_dict())
+
     def test_class_dict_name(self):
         a = BaseModel()
         b = a.to_dict()
@@ -59,3 +75,19 @@ class TestBaseCase(unittest.TestCase):
         b = a.to_dict()
         c = a.created_at.isoformat()
         self.assertEqual(c, b['created_at'])
+
+    def test_instance_with_kwargs(self):
+        a = BaseModel()
+        b = a.to_dict()
+        c = BaseModel(**b)
+        self.assertEqual(b, c.to_dict())
+        self.assertEqual(b.get('id'), c.id)
+        self.assertEqual(a.created_at, c.created_at)
+
+    def testno_class_attribute(self):
+        a = BaseModel()
+        a.save()
+        b = a.to_dict()
+        c = BaseModel(**b)
+        self.assertNotEqual(c.created_at, c.updated_at)
+        self.assertEqual(c.updated_at, a.updated_at)
