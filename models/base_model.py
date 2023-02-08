@@ -1,5 +1,10 @@
 #!/usr/bin/python3
-"""The base model for all class"""
+"""This is the Base Model module.
+Contains the BaseModel class which will be the
+"base" of all other classes in this project.
+"""
+
+import models
 import uuid
 from datetime import datetime
 
