@@ -31,3 +31,46 @@ class HBNBCommand(cmd.Cmd):
     classes = [
         "BaseModel", "Amenity", "City", "Place", "Review", "State", "User"
     ]
+
+
+
+
+
+
+
+    def do_destroy(self, arg):
+        """
+        Deletes an instance.
+            usage: destroy <class_name> <id>
+        """
+        args = shlex.split(arg)
+        models.storage.reload()
+        if len(args) < 1:
+            print(self.errors["missingClass"])
+        elif args[0] in self.classes:
+            if len(args) < 2:
+                print(self.errors["missingID"])
+            else:
+                key = args[0] + '.' + args[1]
+                if key in models.storage.all().keys():
+                    models.storage.all().pop(key)
+                    models.storage.save()
+                else:
+                    print(self.errors["wrongID"])
+        else:
+            print(self.errors["wrongClass"])
+
+    def do_all(self, arg):
+        """
+        Prints all string representation of all instances.
+            usage: all [class_name]
+        """
+        args = shlex.split(arg)
+        models.storage.reload()
+        if len(args) < 1:
+            print([v.__str__() for v in models.storage.all().values()])
+        elif args[0] in self.classes:
+            print([v.__str__() for v in models.storage.all().values()
+                   if type(v) is eval(args[0])])
+        else:
+            print(self.errors["wrongClass"])
