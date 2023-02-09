@@ -35,7 +35,7 @@ class HBNBCommand(cmd.Cmd):
 
 
 """
-Hi, "Mustapha" I am just trying destroy task below you can right here the other staff her!
+Hi, "Mustapha" I am just trying _destroy_ task below you can write the other staff here!
 """
 
 
