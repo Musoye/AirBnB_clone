@@ -34,9 +34,60 @@ class HBNBCommand(cmd.Cmd):
 
 
 
-"""
-Hi, "Mustapha" I am just trying _destroy, update, count_ task below you can write the other staff here!
-"""
+    def do_quit(self, arg):
+        """
+        Exits the program.
+            usage: quit
+        """
+        return True
+
+    def do_EOF(self, arg):
+        """
+        Exits the program.
+            usage: EOF (Ctrl+D)
+        """
+        return True
+
+    def emptyline(self):
+        """Handles the emptyline behaviour."""
+        pass
+
+    def do_create(self, arg):
+        """
+        Creates a new instance of BaseModel, saves it and prints the id.
+            usage: create <class_name>
+        """
+        args = shlex.split(arg)
+        models.storage.reload()
+        if len(args) < 1:
+            print(self.errors["missingClass"])
+        elif args[0] in self.classes:
+            new = eval(args[0])()
+            new.save()
+            print(new.id)
+        else:
+            print(self.errors["wrongClass"])
+
+    def do_show(self, arg):
+        """
+        Prints the string representation of an instance.
+            usage: show <class_name> <id>
+        """
+        args = shlex.split(arg)
+        models.storage.reload()
+        if len(args) < 1:
+            print(self.errors["missingClass"])
+        elif args[0] in self.classes:
+            if len(args) < 2:
+                print(self.errors["missingID"])
+            else:
+                key = args[0] + '.' + args[1]
+                if key in models.storage.all().keys():
+                    print(models.storage.all()[key])
+                else:
+                    print(self.errors["wrongID"])
+        else:
+            print(self.errors["wrongClass"])
 
 
 
