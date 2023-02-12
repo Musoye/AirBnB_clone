@@ -9,7 +9,7 @@ class TestStorageinstate(unittest.TestCase):
     """Test for the file storage class"""
 
     def test_filepath_attribute(self):
-        self.assertFalse(hasattr(FileStorage(), '__file_path')
+        self.assertFalse(hasattr(FileStorage(), '__file_path'))
 
     def test_objects_attr(self):
         self.assertFalse(hasattr(FileStorage(), '__objects'))

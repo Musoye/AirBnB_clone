@@ -40,7 +40,7 @@ class TestBaseCase(unittest.TestCase):
 
     def test_update_save(self):
         a = BaseModel()
-        b, c = a.save(), datetime.datetime.now()
+        b, c = a.save(), datetime.now()
         self.assertEqual(a.updated_at.strftime('%H:%M:%S'),
                          c.strftime('%H:%M:%S'))
 
