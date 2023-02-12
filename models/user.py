@@ -3,7 +3,7 @@
 Contains the User class that inherits from BaseModel.
 """
 from models.base_model import BaseModel
-import pep8
+
 
 class User(BaseModel):
     """This class defines a User.

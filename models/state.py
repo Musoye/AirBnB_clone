@@ -3,7 +3,7 @@
 Contains the State class that inherits from BaseModel.
 """
 from models.base_model import BaseModel
-import pep8
+
 
 class State(BaseModel):
     """This class defines a State.

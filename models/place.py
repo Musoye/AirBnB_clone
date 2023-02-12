@@ -3,7 +3,7 @@
 Contains the Place class that inherits from BaseModel.
 """
 from models.base_model import BaseModel
-import pep8
+
 
 class Place(BaseModel):
     """This class defines an Place.

@@ -3,7 +3,7 @@
 Contains the Amenity class that inherits from BaseModel.
 """
 from models.base_model import BaseModel
-import pep8
+
 
 class Amenity(BaseModel):
     """This class defines an Amenity.
