@@ -1,9 +1,16 @@
 #!/usr/bin/python3
-"""test base code"""
-from models.base_model import BaseModel
+"""Defines unittests for models/base_model.py.
+Unittest classes:
+    TestBaseModel_instantiation
+    TestBaseModel_save
+    TestBaseModel_to_dict
+"""
+import os
+import models
 import unittest
-import datetime
+from datetime import datetime
 from time import sleep
+from models.base_model import BaseModel
 
 
 class TestBaseCase(unittest.TestCase):
