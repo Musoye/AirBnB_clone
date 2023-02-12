@@ -3,7 +3,7 @@
 Contains the City class that inherits from BaseModel.
 """
 from models.base_model import BaseModel
-
+import pep8
 
 class City(BaseModel):
     """This class defines a City.
