@@ -3,7 +3,7 @@
 Contains the BaseModel class which will be the
 "base" of all other classes in this project.
 """
-import pep8
+
 import models
 import uuid
 from datetime import datetime
