@@ -217,10 +217,7 @@ show <class> <id>
 
 ```bash
 (hbnb) create City
-(hbnb) create City
 (hbnb) count City
-2
-(hbnb)
 ```
 
 * update
@@ -238,15 +235,15 @@ show <class> <id>
 <details>
     <summary>Mustapha Oyebamiji</summary>
     <ul>
-    <li><a href="https://github.com/Musoye">Github</a></li>
-    <li><a href="oyebamijimustapha44@gmail.com">e-mail</a></li>
+    <li><a href="https://www.github.com/Musoye">Github</a></li>
+    <li><a href="mailto:oyebamijimustapha44@gmail.com">e-mail</a></li>
     </ul>
 </details>
 <details>
     <summary>Moges Amane</summary>
     <ul>
-    <li><a href="https://github.com/stoicism-sympathei">Github</a></li>
-    <li><a href="mogesanonymous@gmail.co">e-mail</a></li>
+    <li><a href="https://www.github.com/stoicism-sympathei">Github</a></li>
+    <li><a href="mailto:mogesanonymous@gmail.co">e-mail</a></li>
     </ul>
 </details>
 
