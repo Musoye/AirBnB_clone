@@ -22,8 +22,13 @@ from models.review import Review
 class TestFileStorage_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the FileStorage class."""
 
+<<<<<<< HEAD
     def test_FileStorage_instantiation_no_args(self):
         self.assertEqual(type(FileStorage()), FileStorage)
+=======
+    def test_filepath_attribute(self):
+        self.assertFalse(hasattr(FileStorage(), '__file_path'))
+>>>>>>> dd054c84c4a687c8c8f1464018cea3355aae135b
 
     def test_FileStorage_instantiation_with_arg(self):
         with self.assertRaises(TypeError):
